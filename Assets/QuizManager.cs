@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class QuizManager : MonoBehaviour
 {
@@ -11,9 +12,8 @@ public class QuizManager : MonoBehaviour
 
     public GameObject QuestionPanel;
     public GameObject[] Panels;
-   
 
-    public Text QuestionText;
+    public TextMeshProUGUI QuestionText;
     public Text ScoreText;
 
     //Slider variables
@@ -99,7 +99,7 @@ public class QuizManager : MonoBehaviour
         if(CurrentQuestionIndex < QnA.Count)
         {
             CurrentQuestion = QnA[CurrentQuestionIndex];
-            QuestionText.text = CurrentQuestion.Question;
+            QuestionText.SetText(CurrentQuestion.Question);
             CurrentQuestion.SetAnswers();
             CurrentQuestionIndex += 1;
         }

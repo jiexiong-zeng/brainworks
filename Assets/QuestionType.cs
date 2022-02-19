@@ -13,7 +13,7 @@ public class QuestionType
     //For "TF", value 0 or 1
     public int CorrectOption;
 
-
+    [Multiline]
     public string Question;
     //public string[] Answers;
     public GameObject[] Options;
