@@ -48,8 +48,15 @@ public class QuestionType
 
         else if (Type == "Slider")
         {
-
+            //Future functionality
         }
+
+        else if (Type == "InputField")
+        {
+            //Future functionality
+        }
+
+
     }
 
 }

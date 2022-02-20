@@ -19,6 +19,9 @@ public class QuizManager : MonoBehaviour
     //Slider variables
     public int SliderValue;
 
+    //Input field questions
+    public int input1;
+
     private int CurrentQuestionIndex = 0;
     private int CurrentPanelIndex = 0;
     private int TotalQuestions = 0;
@@ -92,6 +95,11 @@ public class QuizManager : MonoBehaviour
     public void SetSliderValue(int sv)
     {
         this.SliderValue = sv;
+    }
+
+    public void SetInputFieldValue(int ifv)
+    {
+        this.input1 = ifv;
     }
 
     void GenerateQuestion()
