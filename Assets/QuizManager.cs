@@ -36,7 +36,6 @@ public class QuizManager : MonoBehaviour
         }
         QuestionPanel.SetActive(true);
         Panels[CurrentPanelIndex].SetActive(true);
-
         GenerateQuestion();
     }
 
