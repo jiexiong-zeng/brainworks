@@ -49,7 +49,7 @@ public class QuizManager : MonoBehaviour
         //QuizPanel.SetActive(false);
         //GOPanel.SetActive(true);
         QuestionPanel.SetActive(false);
-        for (int i = 0; i < Panels.Length - 1; i++)
+        for (int i = 0; i < Panels.Length; i++)
         {
             Panels[i].SetActive(false);
         }

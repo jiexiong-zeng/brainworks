@@ -10,7 +10,7 @@ public class ReadInputScript : MonoBehaviour
 
     public void ReadStringInput(string s)
     {
-        if (int.TryParse(s, out val))
+        if (int.TryParse(s, out val) && (0 <= this.val) && (this.val <= 100))
         {
             quizManager.SetInputFieldValue(val);
             quizManager.Correct();
@@ -18,7 +18,7 @@ public class ReadInputScript : MonoBehaviour
 
         else
         {
-            Debug.Log("Non-integer value detected.");
+            Debug.Log("Invalid input detected.");
         }
         
     }
