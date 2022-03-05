@@ -16,4 +16,9 @@ public class SliderScript : MonoBehaviour
         quizManager.Correct();
     }
 
+    public void SetSliderVolume()
+    {
+        quizManager.ChangeAudioVolume(MySlider.value);
+    }
+
 }

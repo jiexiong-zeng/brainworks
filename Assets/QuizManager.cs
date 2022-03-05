@@ -11,6 +11,7 @@ public class QuizManager : MonoBehaviour
     private QuestionType CurrentQuestion;
 
     public GameObject QuestionPanel;
+    public GameObject AudioOverlayPanel;
     public GameObject[] Panels;
 
     public TextMeshProUGUI QuestionText;
@@ -27,6 +28,11 @@ public class QuizManager : MonoBehaviour
     private int TotalQuestions = 0;
     public int Score;
 
+    //Audio
+    public Slider volumeSlider;
+    public AudioSource audio;
+
+    
     private void Start()
     {
         TotalQuestions = QnA.Count;
@@ -35,6 +41,7 @@ public class QuizManager : MonoBehaviour
             Panels[i].SetActive(false);
         }
         QuestionPanel.SetActive(true);
+        AudioOverlayPanel.SetActive(true);
         Panels[CurrentPanelIndex].SetActive(true);
         GenerateQuestion();
     }
@@ -116,6 +123,17 @@ public class QuizManager : MonoBehaviour
             GameOver();
         }
         
+    }
+
+    public void SetAndPlayAudio(AudioSource a)
+    {
+        this.audio = a;
+        this.audio.Play();
+    }
+
+    public void ChangeAudioVolume(float sliderValue)
+    {
+        this.audio.volume = sliderValue;
     }
 
 }
