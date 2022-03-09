@@ -136,4 +136,10 @@ public class QuizManager : MonoBehaviour
         this.audio.volume = sliderValue;
     }
 
+    public int getCurrentPanelIndex()
+    {
+        return CurrentPanelIndex;
+    }
+
+
 }
