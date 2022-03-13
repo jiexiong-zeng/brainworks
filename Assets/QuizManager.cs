@@ -17,6 +17,10 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI QuestionText;
     public Text ScoreText;
 
+    public string gender = "male";
+    public string race = "malay";
+
+
     //Slider variables
     public int SliderValue;
 
@@ -141,5 +145,9 @@ public class QuizManager : MonoBehaviour
         return CurrentPanelIndex;
     }
 
+    public string[] getGenderAndRace()
+    {
+        return new string[] { gender, race };
+    }
 
 }
