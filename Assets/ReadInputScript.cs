@@ -7,13 +7,19 @@ public class ReadInputScript : MonoBehaviour
 {
     public int val = -1;
     public QuizManager quizManager;
+    private string msg = "NONE";
+
+    public void setMsg(string msg)
+    {
+        this.msg = msg;
+    }
 
     public void ReadStringInput(string s)
     {
         if (int.TryParse(s, out val) && (0 <= this.val) && (this.val <= 100))
         {
-            quizManager.SetInputFieldValue(val);
-            quizManager.Correct();
+            quizManager.setScoringSystemValue(this.msg, val);
+            quizManager.GoNext();
         }
 
         else

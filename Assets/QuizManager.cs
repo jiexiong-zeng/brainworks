@@ -13,16 +13,15 @@ public class QuizManager : MonoBehaviour
     public GameObject QuestionPanel;
     public GameObject AudioOverlayPanel;
     public GameObject[] Panels;
+    public GameObject GOPanel;
 
     public TextMeshProUGUI QuestionText;
-    public Text ScoreText;
+    public TextMeshProUGUI ScoreText;
 
     public string gender = "male";
     public string race = "malay";
 
 
-    //Slider variables
-    public int SliderValue;
 
     //Input field questions
     public int input1;
@@ -30,16 +29,18 @@ public class QuizManager : MonoBehaviour
     private int CurrentQuestionIndex = 0;
     private int CurrentPanelIndex = 0;
     private int TotalQuestions = 0;
-    public int Score;
 
     //Audio
     public Slider volumeSlider;
     public AudioSource audio;
 
-    
+    private ScoringSystem SS = new ScoringSystem();
+
+
     private void Start()
     {
         TotalQuestions = QnA.Count;
+        GOPanel.SetActive(false);
         for (int i = 0; i < Panels.Length; i++)
         {
             Panels[i].SetActive(false);
@@ -57,34 +58,30 @@ public class QuizManager : MonoBehaviour
 
     public void GameOver()
     {
-        //QuizPanel.SetActive(false);
-        //GOPanel.SetActive(true);
-        QuestionPanel.SetActive(false);
         for (int i = 0; i < Panels.Length; i++)
         {
             Panels[i].SetActive(false);
         }
-        Panels[Panels.Length - 1].SetActive(true);
-        ScoreText.text = "Questions Answered:\n" + Score + "/" + TotalQuestions;
+        QuestionPanel.SetActive(true);
+        GOPanel.SetActive(true);
+        QuestionText.SetText("FINISHED");
+        ScoreText.SetText(SS.getAnswers());
+        //Panels[Panels.Length - 1].SetActive(true);
+
     }
 
-    public void Correct()
+    public void GoNext()
     {
-        Score += 1;
         GenerateQuestion();
+        
         Panels[CurrentPanelIndex].SetActive(false);
         CurrentPanelIndex += 1;
-        Panels[CurrentPanelIndex].SetActive(true);
+        if (CurrentPanelIndex < QnA.Count)
+        {
+            Panels[CurrentPanelIndex].SetActive(true);
+        }
     }
 
-    public void Wrong()
-    {
-        Score += 1;
-        GenerateQuestion();
-        Panels[CurrentPanelIndex].SetActive(false);
-        CurrentPanelIndex += 1;
-        Panels[CurrentPanelIndex].SetActive(true);
-    }
 
     /*
     void SetAnswers()
@@ -102,10 +99,6 @@ public class QuizManager : MonoBehaviour
 
     }
     */
-    public void SetSliderValue(int sv)
-    {
-        this.SliderValue = sv;
-    }
 
     public void SetInputFieldValue(int ifv)
     {
@@ -148,6 +141,22 @@ public class QuizManager : MonoBehaviour
     public string[] getGenderAndRace()
     {
         return new string[] { gender, race };
+    }
+
+    public void setScoringSystemValue(string msg, int val)
+    {
+        if (msg != "NONE")
+        {
+            SS.setValue(msg, val);
+        }
+    }
+
+    public void setScoringSystemValue(string msg, bool tf)
+    {
+        if (msg != "NONE")
+        {
+            SS.setValue(msg, tf);
+        }
     }
 
 }

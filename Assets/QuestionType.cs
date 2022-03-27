@@ -21,21 +21,7 @@ public class QuestionType
 
     public void SetAnswers()
     {
-        if (Type == "TF")
-        {
-            if (CorrectOption == 0)
-            {
-                //False is correct
-                this.Options[0].GetComponent<AnswerScript>().IsCorrect = true;
-            }
-            else
-            {
-                //True is correct
-                this.Options[1].GetComponent<AnswerScript>().IsCorrect = true;
-            }
-        }
-
-        else if (Type == "MRQ")
+        if (Type == "MRQ")
         {
             for (int i = 0; i < this.Options.Length; i++)
             {

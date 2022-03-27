@@ -10,6 +10,6 @@ public class LanguageTypes : MonoBehaviour
     public void ChooseLanguage()
     {
         quizManager.SetAndPlayAudio(audio);
-        quizManager.Correct();
+        quizManager.GoNext();
     }
 }

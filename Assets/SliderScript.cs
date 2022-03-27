@@ -9,11 +9,18 @@ public class SliderScript : MonoBehaviour
 
     public QuizManager quizManager;
 
+    private string msg;
+
+    public void setMsg(string msg)
+    {
+        this.msg = msg;
+    }
+
     public void ConfirmSelection()
     {
         Debug.Log("Response collected.");
-        quizManager.SetSliderValue((int)MySlider.value);
-        quizManager.Correct();
+        quizManager.setScoringSystemValue(this.msg, (int)MySlider.value);
+        quizManager.GoNext();
     }
 
     public void SetSliderVolume()
