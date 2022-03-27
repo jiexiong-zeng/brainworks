@@ -2174,7 +2174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfab50e4f3de140eaacab90a3fd80d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MySlider: {fileID: 569756557}
+  MySlider: {fileID: 603170772}
   quizManager: {fileID: 96604461}
 --- !u!114 &93596090
 MonoBehaviour:
@@ -4100,7 +4100,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 40.6, y: 15.8}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5544,7 +5544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfab50e4f3de140eaacab90a3fd80d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MySlider: {fileID: 1325720475}
+  MySlider: {fileID: 1726974644}
   quizManager: {fileID: 96604461}
 --- !u!114 &280827990
 MonoBehaviour:
@@ -8431,7 +8431,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 20.1, y: 14.3}
   m_SizeDelta: {x: 20.44, y: 0.40000057}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22574,7 +22574,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 6
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -27224,7 +27224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1670742492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27864,7 +27864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfab50e4f3de140eaacab90a3fd80d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MySlider: {fileID: 569756557}
+  MySlider: {fileID: 199313192}
   quizManager: {fileID: 96604461}
 --- !u!114 &1730624791
 MonoBehaviour:
@@ -29552,7 +29552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1865718402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31252,7 +31252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfab50e4f3de140eaacab90a3fd80d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MySlider: {fileID: 569756557}
+  MySlider: {fileID: 1325720475}
   quizManager: {fileID: 96604461}
 --- !u!114 &2000556148
 MonoBehaviour:
