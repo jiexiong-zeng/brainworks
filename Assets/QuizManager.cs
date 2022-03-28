@@ -35,10 +35,12 @@ public class QuizManager : MonoBehaviour
     public AudioSource audio;
 
     private ScoringSystem SS = new ScoringSystem();
-
+    private ExportScores exportScores = new ExportScores();
 
     private void Start()
     {
+        exportScores.filePath = Application.dataPath + "/Scores.csv";
+        //Debug.Log(Application.dataPath);
         TotalQuestions = QnA.Count;
         GOPanel.SetActive(false);
         for (int i = 0; i < Panels.Length; i++)
@@ -66,6 +68,7 @@ public class QuizManager : MonoBehaviour
         GOPanel.SetActive(true);
         QuestionText.SetText("FINISHED");
         ScoreText.SetText(SS.getAnswers());
+        exportScores.ExportToCSV(SS);
         //Panels[Panels.Length - 1].SetActive(true);
 
     }

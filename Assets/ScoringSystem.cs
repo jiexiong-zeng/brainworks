@@ -24,6 +24,11 @@ public class ScoringSystem : MonoBehaviour
     //Resistance to sunk cost
     private int rsc1, rsc2;
 
+    //Final Score variables
+    public int adrValue;
+    public double oucValue;
+    public string rsnValue;
+    public string walletQuestion;
 
     public void setValue(string s, int val)
     {   
@@ -84,10 +89,9 @@ public class ScoringSystem : MonoBehaviour
         }
     }
 
-
     public string getAnswers()
     {
-        int adrValue = 0;
+        adrValue = 0;
         if (this.adr1)
         {
             adrValue += 50;
@@ -109,19 +113,25 @@ public class ScoringSystem : MonoBehaviour
 
         double d1 = uocv1 * 10 + 40;
         double d2 = uocv2 * 10 + 40;
-        double oucValue = 1 - Math.Abs(((d1 + d2) / 200) - oucV);
+        oucValue = 1 - Math.Abs(((d1 + d2) / 200) - oucV);
 
-        string rsnValue = this.rsn ? "Correct" : "Wrong";
+        rsnValue = this.rsn ? "Correct" : "Wrong";
 
-        string walletQuestion = v1 < v2 ? "Correct" : "Wrong";
+        walletQuestion = v1 < v2 ? "Correct" : "Wrong";
 
-        return "Resistance to framing: " + Math.Abs(rtf1 - rtf2) + "\n" +
+        return "Resistance to framing: " + getRtf() + "\n" +
                "Underconfidence / Overconfidence: " + oucValue + "\n" + 
                "Applying decision rules: " + adrValue + "/" + 100 + "\n" +
                "Recognizing social norms: " + rsnValue + "\n" +
                "Wallet Question: " + walletQuestion + "\n" +
-               "Resistance to sunk cost: " + Math.Abs(rsc2 - rsc1);
+               "Resistance to sunk cost: " + getRsc();
     }
-    
 
+    public int getRtf() {
+        return Math.Abs(rtf1 - rtf2);
+    }
+
+    public int getRsc() {
+        return Math.Abs(rsc2 - rsc1);
+    }
 }
