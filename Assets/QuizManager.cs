@@ -33,6 +33,7 @@ public class QuizManager : MonoBehaviour
     //Audio
     public Slider volumeSlider;
     public AudioSource audio;
+    [SerializeField] private PlayAudio playAudio;
 
     private ScoringSystem SS = new ScoringSystem();
     private ExportScores exportScores = new ExportScores();
@@ -51,6 +52,7 @@ public class QuizManager : MonoBehaviour
         AudioOverlayPanel.SetActive(true);
         Panels[CurrentPanelIndex].SetActive(true);
         GenerateQuestion();
+        playAudio.PlayVoice();
     }
 
     public void Retry()
@@ -83,6 +85,8 @@ public class QuizManager : MonoBehaviour
         {
             Panels[CurrentPanelIndex].SetActive(true);
         }
+        playAudio.PlayVoice();
+
     }
 
 
