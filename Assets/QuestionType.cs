@@ -25,6 +25,7 @@ public class QuestionType
         {
             for (int i = 0; i < this.Options.Length; i++)
             {
+                this.Options[i].GetComponent<AnswerScript>().optionNo = i + 1;
                 if (CorrectOption == i + 1)
                 {
                     this.Options[i].GetComponent<AnswerScript>().IsCorrect = true;

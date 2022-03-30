@@ -5,6 +5,15 @@ using System;
 
 public class ScoringSystem : MonoBehaviour
 {
+    //Age group
+    private int ag;
+
+    //Gender
+    private int g;
+
+    //Ethnicity
+    private int e;
+
     //Resistance to framing
     private int rtf1, rtf2;
 
@@ -31,7 +40,19 @@ public class ScoringSystem : MonoBehaviour
     public string walletQuestion;
 
     public void setValue(string s, int val)
-    {   
+    {
+        if (s == "ag")
+        {
+            this.ag = val;
+        }
+        if (s == "g")
+        {
+            this.g = val;
+        }
+        if (s == "e")
+        {
+            this.e = val;
+        }
         if (s == "rtf1")
         {
             this.rtf1 = val;
@@ -91,6 +112,70 @@ public class ScoringSystem : MonoBehaviour
 
     public string getAnswers()
     {
+        Debug.Log(this.ag);
+        Debug.Log(this.g);
+        Debug.Log(this.e);
+
+        String agString;
+        switch (this.ag)
+        {
+            case 1:
+                agString = "Under 60";
+                break;
+            case 2:
+                agString = "60-65";
+                break;
+            case 3:
+                agString = "65-70";
+                break;
+            case 4:
+                agString = "70-75";
+                break;
+            case 5:
+                agString = "75-80";
+                break;
+            case 6:
+                agString = "Over 80";
+                break;
+            default:
+                agString = "NONE";
+                break;
+        }
+
+        String gender;
+        switch (this.g)
+        {
+            case 1:
+                gender = "Female";
+                break;
+            case 2:
+                gender = "Male";
+                break;
+            default:
+                gender = "NONE";
+                break;
+        }
+
+        String ethnicity;
+        switch (this.e)
+        {
+            case 1:
+                ethnicity = "Caucasian";
+                break;
+            case 2:
+                ethnicity = "Indian";
+                break;
+            case 3:
+                ethnicity = "Malay";
+                break;
+            case 4:
+                ethnicity = "Chinese";
+                break;
+            default:
+                ethnicity = "NONE";
+                break;
+        }
+
         adrValue = 0;
         if (this.adr1)
         {
@@ -115,15 +200,18 @@ public class ScoringSystem : MonoBehaviour
         double d2 = uocv2 * 10 + 40;
         oucValue = 1 - Math.Abs(((d1 + d2) / 200) - oucV);
 
-        rsnValue = this.rsn ? "Correct" : "Wrong";
+        rsnValue = this.rsn ? "Correct" : "Incorrect";
 
-        walletQuestion = v1 < v2 ? "Correct" : "Wrong";
+        walletQuestion = v1 < v2 ? "Correct" : "Incorrect";
 
-        return "Resistance to framing: " + getRtf() + "\n" +
+        return "Age Group: " + agString + "\n" +
+               "Gender: " + gender + "\n" +
+               "Ethnicity: " + ethnicity + "\n" + 
+               "Resistance to framing: " + getRtf() + "\n" +
                "Underconfidence / Overconfidence: " + oucValue + "\n" + 
                "Applying decision rules: " + adrValue + "/" + 100 + "\n" +
                "Recognizing social norms: " + rsnValue + "\n" +
-               "Wallet Question: " + walletQuestion + "\n" +
+               "Consistency in Risk Perception: " + walletQuestion + "\n" +
                "Resistance to sunk cost: " + getRsc();
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnswerScript : MonoBehaviour
 {
+    public int optionNo;
     public bool IsCorrect = false;
     public QuizManager quizManager;
     private string msg = "NONE";
@@ -16,6 +17,12 @@ public class AnswerScript : MonoBehaviour
     public void Answer()
     {
         quizManager.setScoringSystemValue(this.msg, IsCorrect);
+        quizManager.GoNext();
+    }
+
+    public void AnswerWithNumber()
+    {
+        quizManager.setScoringSystemValue(this.msg, optionNo);
         quizManager.GoNext();
     }
 }
