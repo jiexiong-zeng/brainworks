@@ -52,6 +52,7 @@ public class QuizManager : MonoBehaviour
         AudioOverlayPanel.SetActive(true);
         Panels[CurrentPanelIndex].SetActive(true);
         GenerateQuestion();
+        SetAndPlayAudio(audio);
         playAudio.PlayVoice();
     }
 
