@@ -36,10 +36,12 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private PlayAudio playAudio;
 
     private ScoringSystem SS = new ScoringSystem();
-    private ExportScores exportScores = new ExportScores();
+    [SerializeField]
+    private ExportScores exportScores;
 
     private void Start()
     {
+        exportScores = gameObject.GetComponent<ExportScores>();
         exportScores.filePath = Application.dataPath + "/Scores.csv";
         //Debug.Log(Application.dataPath);
         TotalQuestions = QnA.Count;

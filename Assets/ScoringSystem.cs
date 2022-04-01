@@ -38,6 +38,9 @@ public class ScoringSystem : MonoBehaviour
     public double oucValue;
     public string rsnValue;
     public string walletQuestion;
+    public String gender;
+    public String agString;
+    public String ethnicity;
 
     public void setValue(string s, int val)
     {
@@ -116,7 +119,6 @@ public class ScoringSystem : MonoBehaviour
         Debug.Log(this.g);
         Debug.Log(this.e);
 
-        String agString;
         switch (this.ag)
         {
             case 1:
@@ -142,7 +144,6 @@ public class ScoringSystem : MonoBehaviour
                 break;
         }
 
-        String gender;
         switch (this.g)
         {
             case 1:
@@ -156,7 +157,6 @@ public class ScoringSystem : MonoBehaviour
                 break;
         }
 
-        String ethnicity;
         switch (this.e)
         {
             case 1:

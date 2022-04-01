@@ -2448,6 +2448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96604462}
   - component: {fileID: 96604461}
+  - component: {fileID: 96604463}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
@@ -2678,6 +2679,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96604463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96604460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e64f9940f774bebb153c0f25449043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filePath: 
 --- !u!1 &112093527
 GameObject:
   m_ObjectHideFlags: 0
