@@ -2664,6 +2664,7 @@ MonoBehaviour:
   volumeSlider: {fileID: 297798991}
   audio: {fileID: 1151128882}
   playAudio: {fileID: 1303920301}
+  exportScores: {fileID: 0}
 --- !u!4 &96604462
 Transform:
   m_ObjectHideFlags: 0
@@ -19287,7 +19288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1168139066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22242,6 +22243,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1c8d9b4b3fa9dc14a8dc99f38bee8e12, type: 3}
   - {fileID: 8300000, guid: d0dd72f7604ff2641bf459cc63c26ee4, type: 3}
   - {fileID: 8300000, guid: 23c727d26dbcd494aa496e2157594f1e, type: 3}
+  - {fileID: 0}
   quizManager: {fileID: 96604461}
 --- !u!82 &1303920302
 AudioSource:
