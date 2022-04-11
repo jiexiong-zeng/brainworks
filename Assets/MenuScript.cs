@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField]
-    private string targetScene;
+    [SerializeField] private string targetScene;
+    [SerializeField] private GameObject nextSlide;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,15 @@ public class MenuScript : MonoBehaviour
         
     }
 
-    public void buttonChangeScene()
+    public void ButtonChangeScene()
     {
         SceneManager.LoadScene(targetScene);
+    }
+    
+    public void NextSlide()
+    {
+        nextSlide.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 
 }

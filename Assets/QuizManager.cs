@@ -18,8 +18,8 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI QuestionText;
     public TextMeshProUGUI ScoreText;
 
-    public string gender = "male";
-    public string race = "malay";
+    public string gender;
+    public string race;
 
 
 
@@ -41,7 +41,11 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-        exportScores = gameObject.GetComponent<ExportScores>();
+        //initialise
+        gender = "female";
+        race = "malay";
+
+    exportScores = gameObject.GetComponent<ExportScores>();
         exportScores.filePath = Application.dataPath + "/Scores.csv";
         //Debug.Log(Application.dataPath);
         TotalQuestions = QnA.Count;

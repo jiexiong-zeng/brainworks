@@ -25,4 +25,14 @@ public class AnswerScript : MonoBehaviour
         quizManager.setScoringSystemValue(this.msg, optionNo);
         quizManager.GoNext();
     }
+
+    public void SetGender(string gender)
+    {
+        quizManager.gender = gender;
+    }
+
+    public void SetEthnicity(string ethnicity)
+    {
+        quizManager.race = ethnicity;
+    }
 }

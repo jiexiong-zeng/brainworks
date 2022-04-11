@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ImageSelect : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class ImageSelect : MonoBehaviour
     private int selector;
     public bool groupEnable = false;
     [SerializeField] private QuizManager quizManager;
-
+    [SerializeField] private GameObject imageObject;
+    private Image image;
     [SerializeField] private GameObject[] toBeEnabled = new GameObject[8];
+    [SerializeField] private Sprite[] imageList = new Sprite[8];
     [SerializeField] private GameObject[] groupA;
     [SerializeField] private GameObject[] groupB;
 
@@ -18,18 +21,29 @@ public class ImageSelect : MonoBehaviour
     void OnEnable()
     {
         info = quizManager.getGenderAndRace();
-        string race = info[0];
-        string gender = info[1];
-        selector = findCase(race, gender);
+        string gender = info[0];
+        Debug.Log("gender: " + gender);
+        string race = info[1];
+        Debug.Log("race: " + race);
+        selector = findCase(gender, race);
+        Debug.Log(selector);
 
-        if (!groupEnable)
-            toBeEnabled[selector - 1].SetActive(true);
+        if (imageObject != null)
+        {
+            image = imageObject.GetComponent<Image>();
+            SetImage();
+        }
         else
         {
-            if (selector <= 4)
-                EnableGroup(groupA);
+            if (!groupEnable)
+                toBeEnabled[selector - 1].SetActive(true);
             else
-                EnableGroup(groupB);
+            {
+                if (selector <= 4)
+                    EnableGroup(groupA);
+                else
+                    EnableGroup(groupB);
+            }
         }
     }
 
@@ -82,6 +96,11 @@ public class ImageSelect : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+    }
+
+    public void SetImage()
+    {
+        image.sprite = imageList[selector - 1];
     }
 
 }
