@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EnglishQuiz.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ChineseQuiz.unity
+    guid: 903de6e5c5e27d24d896688726344aa3
   m_configObjects: {}
