@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AnswerScript : MonoBehaviour
 {
     public int optionNo;
     public bool IsCorrect = false;
     public QuizManager quizManager;
+    public TextMeshProUGUI QuestionText;
     private string msg = "NONE";
 
     public void setMsg(string msg)
@@ -26,6 +28,18 @@ public class AnswerScript : MonoBehaviour
         quizManager.GoNext();
     }
 
+    public void setScenario(int i)
+    {
+        quizManager.setScoringSystemValue("scenario", i);
+        quizManager.GoNext();
+    }
+
+    public void WrongAnswerTryAgain(string s)
+    {
+        quizManager.setScoringSystemValue(this.msg, IsCorrect);
+        QuestionText.SetText(s);
+    }
+    
     public void SetGender(string gender)
     {
         quizManager.gender = gender;

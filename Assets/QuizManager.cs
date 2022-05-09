@@ -172,5 +172,4 @@ public class QuizManager : MonoBehaviour
             SS.setValue(msg, tf);
         }
     }
-
 }

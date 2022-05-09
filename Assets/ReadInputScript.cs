@@ -28,4 +28,18 @@ public class ReadInputScript : MonoBehaviour
         }
         
     }
+
+    public void ReadPlayerID(string s)
+    {
+        if (int.TryParse(s, out val))
+        {
+            quizManager.setScoringSystemValue(this.msg, val);
+            quizManager.GoNext();
+        }
+
+        else
+        {
+            Debug.Log("Invalid input detected.");
+        }
+    }
 }

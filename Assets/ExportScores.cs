@@ -53,11 +53,11 @@ public class ExportScores : MonoBehaviour
         scoringSystem.oucValue + "," + 
         scoringSystem.adrValue + "/" + 100 + "," +
         scoringSystem.rsnValue + "," +
-        scoringSystem.walletQuestion + "," +
+        scoringSystem.riskPerceptionValue + "," +
         scoringSystem.getRsc());
         streamWriter.Flush();
         streamWriter.Close();
 
-        StartCoroutine(Post(scoringSystem.agString, scoringSystem.gender, scoringSystem.ethnicity, scoringSystem.getRtf(), scoringSystem.oucValue, scoringSystem.adrValue, scoringSystem.rsnValue, scoringSystem.walletQuestion, scoringSystem.getRsc()));
+        StartCoroutine(Post(scoringSystem.agString, scoringSystem.gender, scoringSystem.ethnicity, scoringSystem.getRtf(), scoringSystem.oucValue, scoringSystem.adrValue, scoringSystem.rsnValue, scoringSystem.riskPerceptionValue, scoringSystem.getRsc()));
     }
 }

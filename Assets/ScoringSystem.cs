@@ -5,6 +5,9 @@ using System;
 
 public class ScoringSystem : MonoBehaviour
 {
+    private int ScenarioID;
+
+    private int playerID;
     //Age group
     private int ag;
 
@@ -22,12 +25,17 @@ public class ScoringSystem : MonoBehaviour
     private int uocv1, uocv2;
 
     //Applying Decision Rules
+    private bool flag1 = false;
+    private bool flag2 = false;
+
     private bool adr1, adr2;
 
     //Recognizing social norms
     private bool rsn;
 
-    //Forget Wallet Question (Currently no framework in place)
+    private int rsnVal;
+
+    //Consistency in Risk Perception
     private int v1, v2;
 
     //Resistance to sunk cost
@@ -37,13 +45,24 @@ public class ScoringSystem : MonoBehaviour
     public int adrValue;
     public double oucValue;
     public string rsnValue;
-    public string walletQuestion;
+    public string riskPerceptionValue;
+    public string pathIndependence;
     public String gender;
     public String agString;
     public String ethnicity;
 
     public void setValue(string s, int val)
     {
+        if (s == "scenario")
+        {
+            this.ScenarioID = val;
+        }
+
+        if (s == "pid")
+        {
+            this.playerID = val;
+        }
+        
         if (s == "ag")
         {
             this.ag = val;
@@ -71,6 +90,10 @@ public class ScoringSystem : MonoBehaviour
         else if (s == "uocv2")
         {
             this.uocv2 = val;
+        }
+        else if (s == "rsnVal")
+        {
+            this.rsnVal = val;
         }
         else if (s == "v1")
         {
@@ -101,11 +124,20 @@ public class ScoringSystem : MonoBehaviour
         }
         else if (s == "adr1")
         {
-            this.adr1 = tf;
+            if (!flag1)
+            {
+                flag1 = true;
+                this.adr1 = tf;
+            }
+            
         }
         else if (s == "adr2")
         {
-            this.adr2 = tf;
+            if (!flag2)
+            {
+                flag2 = true;
+                this.adr2 = tf;
+            }     
         }
         else if (s == "rsn")
         {
@@ -202,17 +234,25 @@ public class ScoringSystem : MonoBehaviour
 
         rsnValue = this.rsn ? "Correct" : "Incorrect";
 
-        walletQuestion = v1 < v2 ? "Correct" : "Incorrect";
+        riskPerceptionValue = v1 < v2 ? "Correct" : "Incorrect";
 
-        return "Age Group: " + agString + "\n" +
+        pathIndependence = rsc1 == rsc2 ? "Correct" : "Incorrect";
+
+        return "Scenario ID: " + ScenarioID + "\n" +
+               "Player ID: " + playerID + "\n" +
+               "Age Group: " + agString + "\n" +
                "Gender: " + gender + "\n" +
-               "Ethnicity: " + ethnicity + "\n" + 
+               "Ethnicity: " + ethnicity + "\n" +
                "Resistance to framing: " + getRtf() + "\n" +
-               "Underconfidence / Overconfidence: " + oucValue + "\n" + 
+               "Underconfidence / Overconfidence: " + oucValue + "\n" +
                "Applying decision rules: " + adrValue + "/" + 100 + "\n" +
                "Recognizing social norms: " + rsnValue + "\n" +
-               "Consistency in Risk Perception: " + walletQuestion + "\n" +
-               "Resistance to sunk cost: " + getRsc();
+
+               "(SCENARIO 2 ONLY) Out of 100 people, how many will: " + rsnVal + "\n" +
+
+               "Consistency in Risk Perception: " + riskPerceptionValue + "\n" +
+               "Resistance to sunk cost: " + getRsc() + "\n" +
+               "Path independence:" + pathIndependence;
     }
 
     public int getRtf() {
@@ -220,6 +260,6 @@ public class ScoringSystem : MonoBehaviour
     }
 
     public int getRsc() {
-        return Math.Abs(rsc2 - rsc1);
+        return Math.Abs(rsc1 - rsc2);
     }
 }
