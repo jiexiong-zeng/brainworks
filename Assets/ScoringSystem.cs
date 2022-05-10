@@ -5,9 +5,9 @@ using System;
 
 public class ScoringSystem : MonoBehaviour
 {
-    private int ScenarioID;
+    public int ScenarioID;
 
-    private int playerID;
+    public int playerID;
     //Age group
     private int ag;
 

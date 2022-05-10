@@ -14,6 +14,8 @@ public class ExportScores : MonoBehaviour
     private string BASE_PATH = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc6YcIeBmKvDry_neC666cBFb1L6JKEhtlFis8MMISckjw9UA/formResponse";
     // form fields taken from inspect element in google form <input name="entry.xxxxx" ... >
     IEnumerator Post(
+        int playerId,
+        int scenarioId,
         string age,
         string gender,
         string ethnicity,
@@ -25,6 +27,8 @@ public class ExportScores : MonoBehaviour
         int rsc) {
         Debug.Log(oucValue.ToString());
         WWWForm form = new WWWForm();
+        form.AddField("entry.380980382", playerId);
+        form.AddField("entry.1291519487", scenarioId);
         form.AddField("entry.375521994", age);
         form.AddField("entry.1392694819", gender);
         form.AddField("entry.1606668309", ethnicity);
@@ -49,6 +53,8 @@ public class ExportScores : MonoBehaviour
         }
         streamWriter.WriteLine(
         System.DateTime.Now + "," +
+        scoringSystem.playerID + "," +
+        scoringSystem.ScenarioID + "," +
         scoringSystem.getRtf() + "," +
         scoringSystem.oucValue + "," + 
         scoringSystem.adrValue + "/" + 100 + "," +
@@ -58,6 +64,6 @@ public class ExportScores : MonoBehaviour
         streamWriter.Flush();
         streamWriter.Close();
 
-        StartCoroutine(Post(scoringSystem.agString, scoringSystem.gender, scoringSystem.ethnicity, scoringSystem.getRtf(), scoringSystem.oucValue, scoringSystem.adrValue, scoringSystem.rsnValue, scoringSystem.riskPerceptionValue, scoringSystem.getRsc()));
+        StartCoroutine(Post(scoringSystem.playerID, scoringSystem.ScenarioID, scoringSystem.agString, scoringSystem.gender, scoringSystem.ethnicity, scoringSystem.getRtf(), scoringSystem.oucValue, scoringSystem.adrValue, scoringSystem.rsnValue, scoringSystem.riskPerceptionValue, scoringSystem.getRsc()));
     }
 }
