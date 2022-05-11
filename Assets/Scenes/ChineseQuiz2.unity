@@ -13158,8 +13158,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: A fried carrot cake is high in calories and fats. Try
-            choosing again...
+          m_StringArgument: " \u6CB9\u70B8\u80E1\u841D\u535C\u86CB\u7CD5\u7684\u70ED\u91CF\u548C\u8102\u80AA\u542B\u91CF\u5F88\u9AD8\u3002\u518D\u8BD5\u4E00\u6B21\u9009\u62E9..."
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &693819276
@@ -27726,7 +27725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1456893345
 RectTransform:
   m_ObjectHideFlags: 0
