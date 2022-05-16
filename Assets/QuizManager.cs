@@ -9,6 +9,7 @@ public class QuizManager : MonoBehaviour
 {
     public List<QuestionType> QnA;
     private QuestionType CurrentQuestion;
+    [SerializeField] private string homeScene;
 
     public GameObject QuestionPanel;
     public GameObject AudioOverlayPanel;
@@ -44,6 +45,8 @@ public class QuizManager : MonoBehaviour
         //initialise
         gender = "female";
         race = "malay";
+        CurrentQuestionIndex = 0;
+        CurrentPanelIndex = 0;
 
     exportScores = gameObject.GetComponent<ExportScores>();
         exportScores.filePath = Application.dataPath + "/Scores.csv";
@@ -95,6 +98,26 @@ public class QuizManager : MonoBehaviour
         playAudio.PlayVoice();
 
     }
+
+    public void GoBack()
+    {
+        Panels[CurrentPanelIndex].SetActive(false);
+        CurrentPanelIndex -= 1;
+        CurrentQuestionIndex -= 2;
+        GenerateQuestion();
+        if (CurrentPanelIndex < 0)
+        {
+            return;
+        }
+        Panels[CurrentPanelIndex].SetActive(true);
+        playAudio.PlayVoice();
+    }
+
+    public void GoHome()
+    {
+        SceneManager.LoadScene(homeScene);
+    }
+
 
 
     /*
