@@ -10,8 +10,8 @@ public class ExportScores : MonoBehaviour
     public string filePath;
     StreamWriter streamWriter;
     
-    // google form url
-    private string BASE_PATH = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc6YcIeBmKvDry_neC666cBFb1L6JKEhtlFis8MMISckjw9UA/formResponse";
+    // google form url taken from <form action="...">
+    private string BASE_PATH = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeU_qhg8rcRtDKJOv461caegteNUCh55-70jxSuzSHen-3-rQ/formResponse";
     // form fields taken from inspect element in google form <input name="entry.xxxxx" ... >
     IEnumerator Post(
         int playerId,
@@ -27,17 +27,17 @@ public class ExportScores : MonoBehaviour
         int rsc) {
         Debug.Log(oucValue.ToString());
         WWWForm form = new WWWForm();
-        form.AddField("entry.380980382", playerId);
-        form.AddField("entry.1291519487", scenarioId);
-        form.AddField("entry.375521994", age);
-        form.AddField("entry.1392694819", gender);
-        form.AddField("entry.1606668309", ethnicity);
-        form.AddField("entry.1242502216", rtf.ToString());
-        form.AddField("entry.1723200376", oucValue.ToString());
-        form.AddField("entry.883043933", adrValue.ToString());
-        form.AddField("entry.1304599494", rsnValue);
-        form.AddField("entry.1654742979", walletQuestion);
-        form.AddField("entry.1810348849", rsc.ToString());
+        form.AddField("entry.635881576", playerId);
+        form.AddField("entry.2017042329", scenarioId);
+        form.AddField("entry.1433265299", age);
+        form.AddField("entry.902942899", gender);
+        form.AddField("entry.1178163597", ethnicity);
+        form.AddField("entry.1015507325", rtf.ToString());
+        form.AddField("entry.420657681", oucValue.ToString());
+        form.AddField("entry.834619011", adrValue.ToString());
+        form.AddField("entry.1841700359", rsnValue);
+        form.AddField("entry.1258453114", walletQuestion);
+        form.AddField("entry.2005283702", rsc.ToString());
         byte[] rawData = form.data;
         WWW www = new WWW(BASE_PATH, rawData);
         yield return www;
