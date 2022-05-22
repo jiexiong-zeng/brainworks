@@ -5,6 +5,8 @@ using System;
 
 public class ScoringSystem : MonoBehaviour
 {
+    public int tester;
+
     public int ScenarioID;
 
     public int playerID;
@@ -53,6 +55,11 @@ public class ScoringSystem : MonoBehaviour
 
     public void setValue(string s, int val)
     {
+        if (s == "tester")
+        {
+            this.tester = val;
+        }
+
         if (s == "scenario")
         {
             this.ScenarioID = val;
@@ -238,7 +245,8 @@ public class ScoringSystem : MonoBehaviour
 
         pathIndependence = rsc1 == rsc2 ? "Correct" : "Incorrect";
 
-        return "Scenario ID: " + ScenarioID + "\n" +
+        return //"TESTER:" + tester + "\n" + 
+               "Scenario ID: " + ScenarioID + "\n" +
                "Player ID: " + playerID + "\n" +
                "Age Group: " + agString + "\n" +
                "Gender: " + gender + "\n" +

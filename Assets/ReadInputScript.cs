@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEditor;
 
 public class ReadInputScript : MonoBehaviour
 {
     public int val = -1;
+    [SerializeField] GameObject input;
     public QuizManager quizManager;
     private string msg = "NONE";
 
@@ -14,8 +16,11 @@ public class ReadInputScript : MonoBehaviour
         this.msg = msg;
     }
 
-    public void ReadStringInput(string s)
+
+
+    public void ReadStringInput()
     {
+        string s = input.GetComponent<TMP_InputField>().text;
         if (int.TryParse(s, out val) && (0 <= this.val) && (this.val <= 100))
         {
             quizManager.setScoringSystemValue(this.msg, val);
