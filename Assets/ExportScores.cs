@@ -39,8 +39,8 @@ public class ExportScores : MonoBehaviour
         form.AddField("entry.1258453114", walletQuestion);
         form.AddField("entry.2005283702", rsc.ToString());
         byte[] rawData = form.data;
-        WWW www = new WWW(BASE_PATH, rawData);
-        yield return www;
+        UnityWebRequest wwwRequest = UnityWebRequest.Post(BASE_PATH, form);
+        yield return wwwRequest.SendWebRequest();
     }
 
     public void ExportToCSV(ScoringSystem scoringSystem) {
