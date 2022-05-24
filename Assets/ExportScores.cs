@@ -44,6 +44,8 @@ public class ExportScores : MonoBehaviour
     }
 
     public void ExportToCSV(ScoringSystem scoringSystem) {
+
+        StartCoroutine(Post(scoringSystem.playerID, scoringSystem.ScenarioID, scoringSystem.agString, scoringSystem.gender, scoringSystem.ethnicity, scoringSystem.getRtf(), scoringSystem.oucValue, scoringSystem.adrValue, scoringSystem.rsnValue, scoringSystem.riskPerceptionValue, scoringSystem.getRsc()));
         if (!File.Exists(filePath)) {
             streamWriter = new StreamWriter(filePath, true);
             streamWriter.WriteLine("Time,Resistance to framing,Under/overconfidence,Applying Decision Rules,Recognizing social norms,Wallet Question,Resistance to sunk cost");
@@ -63,7 +65,5 @@ public class ExportScores : MonoBehaviour
         scoringSystem.getRsc());
         streamWriter.Flush();
         streamWriter.Close();
-
-        StartCoroutine(Post(scoringSystem.playerID, scoringSystem.ScenarioID, scoringSystem.agString, scoringSystem.gender, scoringSystem.ethnicity, scoringSystem.getRtf(), scoringSystem.oucValue, scoringSystem.adrValue, scoringSystem.rsnValue, scoringSystem.riskPerceptionValue, scoringSystem.getRsc()));
     }
 }
