@@ -29,6 +29,7 @@ public class ReadInputScript : MonoBehaviour
 
         else
         {
+            Debug.Log(s);
             Debug.Log("Invalid input detected.");
         }
         
