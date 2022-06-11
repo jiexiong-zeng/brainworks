@@ -6,7 +6,7 @@ using UnityEngine;
 public class Blinking : MonoBehaviour
 {
     // the image you want to fade, assign in inspector
-    public Image img;
+    private Image img;
 
     public void Start()
     {
@@ -18,11 +18,12 @@ public class Blinking : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (img.color.a == 0)
+        Debug.Log(img.color.a);
+        if (img.color.a <= 0.01)
         {
             StartCoroutine(FadeImage(false));
         }
-        if (img.color.a == 1)
+        if (img.color.a >= 0.99)
         {
             StartCoroutine(FadeImage(true));
         }
@@ -34,7 +35,7 @@ public class Blinking : MonoBehaviour
         if (fadeAway)
         {
             // loop over 1 second backwards
-            for (float i = 1; i >= 0; i -= Time.deltaTime)
+            for (float i = 1; i >= 0; i -= 2*Time.deltaTime)
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
@@ -45,7 +46,7 @@ public class Blinking : MonoBehaviour
         else
         {
             // loop over 1 second
-            for (float i = 0; i <= 1; i += Time.deltaTime)
+            for (float i = 0; i <= 1; i += 2*Time.deltaTime)
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
