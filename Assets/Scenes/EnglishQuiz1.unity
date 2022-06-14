@@ -2710,8 +2710,8 @@ MonoBehaviour:
     - {fileID: 1166915124}
   - Type: Slider
     CorrectOption: -1
-    Question: "\u201CAn apple a day keeps the doctor away.\u201D\r\nYour answer:
-      The statement is TRUE\r\nHow sure are you about this?\r\n"
+    Question: "\u201CAn apple a day keeps the doctor away.\u201D\r\r\nHow sure are
+      you about your answer?\n"
     Options: []
   - Type: Slider
     CorrectOption: -1
